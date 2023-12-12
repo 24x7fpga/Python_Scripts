@@ -6,8 +6,8 @@ import sys
 name = sys.argv[1]
 home = os.environ['HOME']
 
-d_path  = home + "Projects/fpgaProjects/iVerilog/design/"+name+"/"
-tb_path = home + "Projects/fpgaProjects/iVerilog/tb_design/tb_"+name+"/"
+d_path  = home + "/Projects/fpgaProjects/iVerilog/design/"+name+"/"
+tb_path = home + "/Projects/fpgaProjects/iVerilog/tb_design/tb_"+name+"/"
 
 os.chdir(tb_path)
 print(tb_path)
