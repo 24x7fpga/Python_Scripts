@@ -26,6 +26,10 @@ try:
     os.chdir(nw_d)
     f_d=open(name+".v","x")
     print('Design File Created ;)')
+   
+    # timescale
+    scale = ["`timescale 1ns/1ns \n"] 
+    print('Timescale ;)')
 
     # write Design module
     module = ["module "+name+ "(/*AUTOARG*/); \n",
@@ -53,7 +57,7 @@ try:
     print('Emac linkers ;)')
 
     # write all the lines to a single list
-    content = module + rc + init + end + loc
+    content = scale + module + rc + init + end + loc
     print('Files content Stitched ;)')
 
     # write to the file
@@ -72,6 +76,11 @@ try:
     os.chdir(nw_tb)
     f_tb=open("tb_"+name+".v","x")
     print('Test-Bench File Created ;)')
+
+    # timescale
+    scale = ["`timescale 1ns/1ns \n"] 
+    print('Timescale ;)')
+
     # write test-bench module
     tb_module = ["module tb_"+name+ "(); \n",
 		 "/*AUTOREG*/ \n",
@@ -109,7 +118,7 @@ try:
     print('Emac linkers ;)')
 
     # write all the lines to a single list
-    tb_content = tb_module + tb_rc + tb_init + tb_clk + tb_dump + tb_end + tb_loc
+    tb_content = scale + tb_module + tb_rc + tb_init + tb_clk + tb_dump + tb_end + tb_loc
     print('Files content Stitched ;)')
 
     # write to the file
@@ -122,17 +131,6 @@ try:
 except:
     print('Test-Bench File Creation Failed ;( ')
     
-    
-    
-# complete test-bench file
-
-# go to test-bench folder
-#os.chdir(nw_tb)
-
-# open the file in write mode
-#file = open("tb_"+name+".v", "w")
-
-
 
 # open emacs
 #try:
