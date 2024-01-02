@@ -82,23 +82,37 @@ try:
     print('Timescale ;)')
 
     # write test-bench module
-    tb_module = ["module tb_"+name+ "(); \n",
-		 "/*AUTOREG*/ \n",
-		 "/*AUTOWIRE*/ \n"]
+    tb_module = ["module tb_"+name+ "(); \n"]
     print('Module Written ;)')
 
     # clock and reset
-    tb_rc = ["reg clk; \n",
+    tb_rc = ["localparam t = 10; \n",
+             "reg clk; \n",
 	     "reg rst; \n"]
     print('Clocks and Resets ;)')
+
+
+    # write verilog AUTO 
+    tb_auto = ["/*AUTOREG*/ \n",
+               "/*AUTOWIRE*/ \n"]
+    print('Verilog AUTO mode ;)')
+
 
     # DUT instantiation
     tb_init = [name+ " DUT (/*AUTOINST*/); \n"]
     print('Design Module Instantiated ;)')
 
-    # creat clock
-    tb_clk = ["initial clk = 0; \n" ,"always #5 clk = ~clk; \n"]
-    print('Clocks and Reset Initialized ;)')
+    # initiate clock
+    tb_clk = ["initial clk = 1; \n" ,"always #(t/2) clk = ~clk; \n"]
+    print('Clocks Initialized ;)')
+
+    # initiate reset
+    tb_rst = ["initial begin \n",
+              "rst = 0; \n",
+              "#(2*t); \n",
+              "rst = 1; \n",
+              "end \n"]
+    print('Reset Initialized')
 
     # dump file
     tb_dump = ["initial begin \n",
@@ -118,7 +132,7 @@ try:
     print('Emac linkers ;)')
 
     # write all the lines to a single list
-    tb_content = scale + tb_module + tb_rc + tb_init + tb_clk + tb_dump + tb_end + tb_loc
+    tb_content = scale + tb_module + tb_rc + tb_auto + tb_init + tb_clk + tb_rst + tb_dump + tb_end + tb_loc
     print('Files content Stitched ;)')
 
     # write to the file
