@@ -31,16 +31,16 @@ try:
     scale = ["`timescale 1ns/1ns \n"] 
     print('Timescale ;)')
 
-    # write Design module
+    # write Design module, clock and resets
     module = ["module "+name+ "(/*AUTOARG*/); \n",
-		 "/*AUTOREG*/ \n",
-		 "/*AUTOWIRE*/ \n"]
+		    "input clk; \n",
+	        "input rst; \n"]
     print('Module Written ;)')
 
-    # clock and reset
-    rc = ["reg clk; \n",
-	     "reg rst; \n"]
-    print('Clocks and Resets ;)')
+    # auto wire and register 
+    rc = ["/*AUTOREG*/ \n",
+		 "/*AUTOWIRE*/ \n"]
+    print('Auto WIRE and REG ;)')
 
     # DUT instantiation
     init = ["<module> MOD1 (/*AUTOINST*/); \n"]
