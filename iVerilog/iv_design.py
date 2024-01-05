@@ -33,13 +33,13 @@ try:
 
     # write Design module, clock and resets
     module = ["module "+name+ "(/*AUTOARG*/); \n",
-		    "input clk; \n",
-	        "input rst; \n"]
+	      "  input clk; \n",
+	      "  input rst; \n"]
     print('Module Written ;)')
 
     # auto wire and register 
-    rc = ["/*AUTOREG*/ \n",
-		 "/*AUTOWIRE*/ \n"]
+    rc = ["  /*AUTOREG*/ \n",
+	  "  /*AUTOWIRE*/ \n"]
     print('Auto WIRE and REG ;)')
 
     # DUT instantiation
@@ -52,12 +52,15 @@ try:
 
     # locate the design file
     loc = ["// Local Variables: \n",
-              "// verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
-	      "// End:"]
+           "//verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
+	   "// End:"]
     print('Emac linkers ;)')
 
+    # add a lines
+    line = [" \n"]
+
     # write all the lines to a single list
-    content = scale + module + rc + init + end + loc
+    content = scale + module + line + rc + line + init + line + end + loc
     print('Files content Stitched ;)')
 
     # write to the file
