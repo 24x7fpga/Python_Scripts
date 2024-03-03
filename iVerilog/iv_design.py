@@ -24,7 +24,7 @@ except:
 try:
     nw_d=d_path+"/"+name+"/"
     os.chdir(nw_d)
-    f_d=open(name+".v","x")
+    f_d=open(name+".sv","x")
     print('Design File Created ;)')
    
     # timescale
@@ -52,7 +52,7 @@ try:
 
     # locate the design file
     loc = ["// Local Variables: \n",
-           "//verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
+           "// verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
 	   "// End:"]
     print('Emac linkers ;)')
 
@@ -77,7 +77,7 @@ except:
 try:
     nw_tb=tb_path+"/tb_"+name+"/"
     os.chdir(nw_tb)
-    f_tb=open("tb_"+name+".v","x")
+    f_tb=open("tb_"+name+".sv","x")
     print('Test-Bench File Created ;)')
 
     # timescale
@@ -90,8 +90,8 @@ try:
 
     # clock and reset
     tb_rc = ["localparam t = 10; \n",
-             "reg clk; \n",
-	     "reg rst; \n"]
+             "logic clk; \n",
+	     "logic rst; \n"]
     print('Clocks and Resets ;)')
 
 
