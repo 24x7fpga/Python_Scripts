@@ -33,8 +33,8 @@ try:
 
     # write Design module, clock and resets
     module = ["module "+name+ "(/*AUTOARG*/); \n",
-	      "  input clk; \n",
-	      "  input rst; \n"]
+	      "  input logic clk; \n",
+	      "  input logic rst; \n"]
     print('Module Written ;)')
 
     # auto wire and register 
