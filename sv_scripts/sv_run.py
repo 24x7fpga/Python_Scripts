@@ -7,8 +7,8 @@ import subprocess
 name = sys.argv[1]
 home = os.environ['HOME']
 
-t_path = home + "/Projects/fpgaProjects/SystemVerilog_Verification/sv_tcl_script/sv_run.tcl"
-d_path = home + "/Projects/fpgaProjects/SystemVerilog_Verification/sv_verification/"+name
+t_path = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_tcl_script/sv_run.tcl"
+d_path = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/"+name
 
 
 vivado_command = [

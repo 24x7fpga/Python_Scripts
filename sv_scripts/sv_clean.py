@@ -6,7 +6,7 @@ import subprocess
 
 home = os.environ['HOME']
 
-path = home + "/Projects/fpgaProjects/SystemVerilog_Verification/sv_verification/*/verif"
+path = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/*/verif"
 
 v_path = home+ "/vivado*"
 
