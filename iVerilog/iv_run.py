@@ -10,7 +10,7 @@ home = os.environ['HOME']
 length = len(sys.argv[1:])
 
 # top-module path
-path = home + "/Projects/fpgaProjects/iVerilog/design/"+name+"/" 
+path = home + "/Projects/FPGA_Projects/iVerilog/design/"+name+"/" 
 
 # check file extension
 if(glob.glob(path+name+".v")):
@@ -22,20 +22,20 @@ else:
 
 print(ext)
 #top-module with data path
-d_path  = home + "/Projects/fpgaProjects/iVerilog/design/"+name+"/"+name+ext
+d_path  = home + "/Projects/FPGA_Projects/iVerilog/design/"+name+"/"+name+ext
 
 # test bench path
-tb_path = home + "/Projects/fpgaProjects/iVerilog/tb_design/tb_"+name+"/"
+tb_path = home + "/Projects/FPGA_Projects/iVerilog/tb_design/tb_"+name+"/"
 
 # path for module instantiation
 if(length > 1):
     subd_path=[0 for i in range(length-1)]
     for i in range(length-1):
         if(os.path.isfile(path+sys.argv[2]+ext)):
-            subd_path = home + "/Projects/fpgaProjects/iVerilog/design/"+sys.argv[1]+"/"+sys.argv[i+2]+ext
+            subd_path = home + "/Projects/FPGA_Projects/iVerilog/design/"+sys.argv[1]+"/"+sys.argv[i+2]+ext
             d_path = d_path +" "+subd_path
         else:
-            subd_path = home + "/Projects/fpgaProjects/iVerilog/design/"+sys.argv[i+2]+"/"+sys.argv[i+2]+ext
+            subd_path = home + "/Projects/FPGA_Projects/iVerilog/design/"+sys.argv[i+2]+"/"+sys.argv[i+2]+ext
             d_path = d_path +" "+subd_path
 
 
@@ -46,7 +46,7 @@ print(os.getcwd())
 # os.system("ls -l")
 
 try:
-    os.system("iverilog -g2012 -o tb_"+name+" tb_"+name+ext+" "+d_path)
+    os.system("iverilog -g2012 -o tb_"+name+".vvp tb_"+name+ext+" "+d_path)
     print("iverilog command successful ;)")
     os.system("ls -l")
 except:
@@ -54,7 +54,7 @@ except:
 
 
 try:
-    os.system("vvp "+tb_path+"tb_"+name)
+    os.system("vvp "+tb_path+"tb_"+name+".vvp")
     os.system("ls -l")
     print("vvp command successful ;)")
 except:

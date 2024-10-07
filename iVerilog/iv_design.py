@@ -6,8 +6,8 @@ import sys
 name = sys.argv[1]
 home = os.environ['HOME']
 
-d_path  = home + "/Projects/fpgaProjects/iVerilog/design"
-tb_path = home + "/Projects/fpgaProjects/iVerilog/tb_design"
+d_path  = home + "/Projects/FPGA_Projects/iVerilog/design"
+tb_path = home + "/Projects/FPGA_Projects/iVerilog/tb_design"
 
 
 # create design and test-bench folders
@@ -52,7 +52,7 @@ try:
 
     # locate the design file
     loc = ["// Local Variables: \n",
-           "// verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
+           "// verilog-library-directories:(\"~/Projects/FPGA_Projects/iVerilog/design/"+name+"/\") \n",
 	   "// End:"]
     print('Emac linkers ;)')
 
@@ -106,7 +106,7 @@ try:
     print('Design Module Instantiated ;)')
 
     # initiate clock
-    tb_clk = ["initial clk = 1; \n" ,"always #(t/2) clk = ~clk; \n"]
+    tb_clk = ["always #(t/2) clk = (clk === 1'b0);\n"]
     print('Clocks Initialized ;)')
 
     # initiate reset
@@ -130,7 +130,7 @@ try:
 
     # locate the design file
     tb_loc = ["// Local Variables: \n",
-              "// verilog-library-directories:(\"~/Projects/fpgaProjects/iVerilog/design/*\") \n",
+              "// verilog-library-directories:(\"~/Projects/FPGA_Projects/iVerilog/design/"+name+"/\" \".\") \n",
 	      "// End:"]
     print('Emac linkers ;)')
 
