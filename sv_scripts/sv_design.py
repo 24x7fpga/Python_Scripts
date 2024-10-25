@@ -38,7 +38,7 @@ try:
 
     # locate the design file
     loc = ["// Local Variables: \n",
-           "// verilog-library-directories:(\"~/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/"+name+"/*\") \n",
+           "// verilog-library-directories:(\"~/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/"+name+"\" \".\") \n",
 	   "// End:"]
     print('Emac linkers ;)')
 
