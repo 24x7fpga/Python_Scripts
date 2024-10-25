@@ -1,1 +1,3 @@
 .DS_Store
+/sv_scripts/sv_cstrs_design.py
+/sv_scripts/sv_cstrs_run.py
