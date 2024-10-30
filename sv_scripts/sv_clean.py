@@ -6,12 +6,12 @@ import subprocess
 
 home = os.environ['HOME']
 
-path = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/*/verif"
+path = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/"
 
 v_path = home+ "/vivado*"
 
 try:
-    os.system("rm -rf "+path)
+    os.system("find "+path+" -type d -name \"verif\" -exec rm -r {} +")
     os.system("rm -f "+v_path)
     print("Cleaned! ;)")
 except:
