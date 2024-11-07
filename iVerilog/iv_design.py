@@ -37,13 +37,13 @@ else:
 
 	    # write Design module, clock and resets
 	    module = ["module "+name+ "(/*AUTOARG*/); \n",
-		      "  input logic clk; \n",
-		      "  input logic rst; \n"]
+		      "   input logic clk; \n",
+		      "   input logic rst; \n"]
 	    print('Module Written ;)')
 
 	    # auto wire and register 
-	    rc = ["  /*AUTOREG*/ \n",
-		  "  /*AUTOWIRE*/ \n"]
+	    rc = ["   /*AUTOREG*/ \n",
+		  "   /*AUTOWIRE*/ \n"]
 	    print('Auto WIRE and REG ;)')
 
 	    # DUT instantiation
@@ -56,7 +56,7 @@ else:
 
 	    # locate the design file
 	    loc = ["// Local Variables: \n",
-		   "// verilog-library-directories:(\"~/Projects/FPGA_Projects/iVerilog/design/"+name+"/\") \n",
+		   "// Verilog-Library-Directories:(\"~/Projects/FPGA_Projects/iVerilog/design/"+name+"/\" \".\") \n",
 		   "// End:"]
 	    print('Emac linkers ;)')
 
