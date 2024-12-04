@@ -10,7 +10,7 @@ home = os.environ['HOME']
 length = len(sys.argv[1:])
 
 # Design path
-path = home + "/Projects/FPGA_Projects/RTL/design/"+name+"/" 
+path = home + "/Projects/FPGA_Projects/RTL/rtl_designs/"+name+"/" 
 
 # move to design directory
 os.chdir(path)
