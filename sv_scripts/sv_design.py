@@ -6,7 +6,7 @@ import sys
 name = sys.argv[1]
 home = os.environ['HOME']
 
-d_path  = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification"
+d_path  = home + "/Projects/FPGA_Projects/SV/sv_verification"
 
 # create design and test-bench folders
 try:
@@ -38,7 +38,7 @@ try:
 
     # locate the design file
     loc = ["// Local Variables: \n",
-           "// verilog-library-directories:(\"~/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/"+name+"\" \".\") \n",
+           "// verilog-library-directories:(\"~/Projects/FPGA_Projects/SV/sv_verification/"+name+"\" \".\") \n",
 	   "// End:"]
     print('Emac linkers ;)')
 

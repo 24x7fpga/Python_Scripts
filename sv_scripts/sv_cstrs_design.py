@@ -6,8 +6,8 @@ import sys
 name = sys.argv[1]
 home = os.environ['HOME']
 
-proj_path  = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_verification/cstrs_challenges"
-temp_path  = home + "/Projects/FPGA_Projects/SystemVerilog_Verification/sv_templates/constraints"
+proj_path  = home + "/Projects/FPGA_Projects/SV/sv_verification/cstrs_challenges"
+temp_path  = home + "/Projects/FPGA_Projects/SV/sv_templates/constraints"
 
 # create a folder is the project name
 try:
