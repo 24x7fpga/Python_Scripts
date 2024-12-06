@@ -8,11 +8,8 @@ home = os.environ['HOME']
 
 path = home + "/Projects/FPGA_Projects/SV/sv_verification/"
 
-v_path = home+ "/vivado*"
-
 try:
     os.system("find "+path+" -type d -name \"verif\" -exec rm -r {} +")
-    os.system("rm -f "+v_path)
     print("Cleaned! ;)")
 except:
     print("could not execute command")
