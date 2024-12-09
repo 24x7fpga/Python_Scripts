@@ -6,63 +6,48 @@ import sys
 name = sys.argv[1]
 home = os.environ['HOME']
 
-d_path  = home + "/Projects/FPGA_Projects/SV/sv_verification"
+name = sys.argv[1]
+home = os.environ['HOME']
+
+proj_path  = home + "/Projects/FPGA_Projects/SV/sv_verification/"
+temp_path  = home + "/Projects/FPGA_Projects/SV/sv_templates/design"
 
 #check if the folder already exists
-if name in os.listdir(d_path):
+if name in os.listdir(proj_path):
     	print('----------- WARNING -----------')
     	print('   folder name already exists   ')
 else:
-	# create design and test-bench folders
+	# create a folder is the project name
 	try:
-	    os.chdir(d_path)
+	    os.chdir(proj_path)
 	    os.mkdir(name)
 	    print('Directory creation successful ;)')
 	except:
 	    print('Directory creation Failed ;(')
 
-	# create design files
-	try:
-	    nw_d=d_path+"/"+name+"/"
-	    os.chdir(nw_d)
-	    f_d=open("tb_"+name+".sv","x")
-	    print('Design File Created ;)')
-	   
-	    # write Design module, clock and resets
-	    module = ["module tb_"+name+"; \n"]
-	    print('Module Written ;)')
-
-	    # auto wire and register 
-	    rc = ["  /*AUTOREG*/ \n",
-		  "  /*AUTOWIRE*/ \n"]
-	    print('Auto WIRE and REG ;)')
-
-	    # endmodule
-	    end = ["endmodule \n"]
-	    print('EndModule ;)')
-
-	    # locate the design file
-	    loc = ["// Local Variables: \n",
-		   "// verilog-library-directories:(\"~/Projects/FPGA_Projects/SV/sv_verification/"+name+"\" \".\") \n",
-		   "// End:"]
-	    print('Emac linkers ;)')
-
-	    # add a lines
-	    line = [" \n"]
-
-	    # write all the lines to a single list
-	    content = module + line + rc + line + line + end + loc
-	    print('Files content Stitched ;)')
-
-	    # write to the file
-	    f_d.writelines(content)
-	    print('Design file written ;)')
-
-	    # close the file
-	    f_d.close()
-	    print('File Closed ;)')
+	# copy the template file into the source directory
+	try:    
+	    os.system("cp -f "+temp_path+"/* "+proj_path+"/"+name)
+	    print('Copied the Template Files ;)')
 	except:
-	    print('Design File Creation Failed ;( ')
+	    print('Copying Templates Failed ;(')
+	    
+	# rename testbench 
+	try:
+	    os.chdir(proj_path+"/"+name)    
+	    os.system("mv tb.sv tb_"+name+".sv")
+	    print('Topmodule Rename Successful ;)')
+	except:
+	    print('Topmodule Rename Failed ;(')
+	    
+	# rename the testbench 
+	try:
+	    os.chdir(proj_path+"/"+name)    
+	    os.system("sed -i 's/$ARG/"+name+"/g'  tb_"+name+".sv")
+	    print('Renamed the Testbench ;)')
+	except:
+	    print('Renaming the Testbench Failed ;(')
+	    
 	    
 
     
