@@ -1,0 +1,224 @@
+#+title: Automating RTL Design and Verification with Python
+#+startup: showeverything
+#+startup: toc:nil
+
+* Table of Contents :toc:
+- [[#description][Description]]
+- [[#folder-structure][Folder Structure]]
+- [[#python-script-folder-structrure][Python Script Folder Structrure]]
+- [[#scripts][Scripts]]
+  - [[#clean_scripts][clean_scripts]]
+  - [[#iv_scripts][iv_scripts]]
+  - [[#rtl_scripts][rtl_scripts]]
+  - [[#sv_scritps][sv_scritps]]
+  - [[#uvm_scripts][uvm_scripts]]
+  - [[#veri_scripts][veri_scripts]]
+  - [[#vivado_scripts][vivado_scripts]]
+- [[#getting-started][Getting Started]]
+  - [[#prerequisites][Prerequisites]]
+  - [[#clone-the-repository][Clone the Repository]]
+  - [[#set-up-the-environment][Set Up the Environment]]
+
+* Description
+
+Scripts play a crucial role in the workflow of a front-end digital design engineer, enabling efficiency, consistency, and automation in the design and verification process. This repository includes a set of Python scripts designed to automate and enhance productivity in design and simulation workflow. These scripts:
+
+- Enhance productivity by automating repetitive tasks.
+- Ensure consistency by utilizing predefined templates and structured processes.
+- Support multiple tools, including Vivado, Verilator, and Icarus Verilog.
+- Simplify simulation and cleanup, reducing the need for manual intervention.
+
+* Folder Structure
+
+The directories are organized hierarchically, the main folder is named ===Projects===, under which the subfolders ===FPGA_Projects=== and ===Python_Scripts=== are placed. Designs are contained within the ===FPGA_Projects=== folder, while the scripts required for creating the designs and performing simulations are stored in the ===Python_Scripts=== folder.
+
+#+begin_src bash
+Projects
+.
+├── FPGA_Projects
+│   ├── RTL
+│   ├── SV
+│   ├── UVM
+│   ├── VanillaFPRO
+│   └── ZyboZ7
+│  
+└── Python_Scripts
+    ├── README.org
+    ├── clean_scripts
+    ├── iv_scripts
+    ├── rtl_scripts
+    ├── sv_scripts
+    ├── uvm_scripts
+    ├── veri_scripts
+    └── vivado_scripts
+#+end_src
+
+1. FPGA_Projects
+   Sub-subfolders:        
+   - RTL: Contains resources related to Register Transfer Level design.
+   - SV: Includes files for SystemVerilog projects.
+   - UVM: Holds Universal Verification Methodology (UVM) environments.
+   - VanillaFPRO: Dedicated to the Vanilla Floating Point Reduction Operation project.
+   - ZyboZ7: Contains designs specific to the Zybo Z7 FPGA board.
+
+ 2. Python_Scripts
+    Files and Sub-subfolders:
+    - README.org: Describes the scripts and their usage.
+    - clean_scripts: Includes Python scripts for removing log and project files.
+    - iv_scripts: Contains scripts for simulation using Icarus Verilog.
+    - rtl_scripts: Focused on automating design task for RTL design.
+    - sv_scripts: Scripts specifically for SystemVerilog environments.
+    - uvm_scripts: Scripts supporting UVM-based verification.
+    - veri_scripts: Includes verification-related scripts.
+    - vivado_scripts: Contains automation scripts for the Vivado tool.
+
+This structure facilitates the organization of FPGA design and Python automation scripts for efficient management and access.
+
+* Python Script Folder Structrure
+
+#+begin_src bash
+Python_Scripts
+.
+├── clean_scripts
+│   └── clean_all.py
+├── iv_scripts
+│   ├── archived
+│   ├── iv_clean.py
+│   └── iv_run.py
+├── rtl_scripts
+│   └── rtl_design.py
+├── sv_scripts
+│   ├── sv_clean.py
+│   ├── sv_cstrs_design.py
+│   ├── sv_cstrs_run.py
+│   ├── sv_design.py
+│   └── sv_run.py
+├── uvm_scripts
+│   ├── uvm_clean.py
+│   └── uvm_run.py
+├── veri_scripts
+│   ├── config.vlt
+│   ├── veri_clean.py
+│   └── veri_run.py
+└── vivado_scripts
+    ├── vivado_clean.py
+    └── vivado_run.py
+#+end_src
+
+* Scripts
+
+
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/clean_scripts][clean_scripts]]
+        
+- Purpose: General cleanup utility for removing simulation files and logs across all tools. Simplifies maintaining a clean working environment.
+            
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/clean_scripts/clean_all.py][clean_all.py]]: Deletes all files, logs, and project directories created by various tools (e.g., Icarus Verilog, Verilator, and Vivado).
+
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/iv_scripts][iv_scripts]]
+        
+- Purpose: Facilitates simulation and cleanup when using Icarus Verilog. Automates Icarus Verilog-based design workflows for efficient simulation and cleanup.
+        
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/iv_scripts/iv_run.py][iv_run.py]]: Simulates the RTL design using Icarus Verilog.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/iv_scripts/iv_clean.py][iv_clean.py]]: Removes all files generated during the Icarus Verilog simulation, such as .vvp and .vcd files.
+
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/rtl_scripts][rtl_scripts]]
+ 
+- Purpose: Automates the creation of RTL design and testbench files. Ensures consistency in design and testbench structure by leveraging predefined templates.
+            
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/rtl_scripts/rtl_design.py][rtl_design.py]]: Creates a new folder in the rtl_designs directory.Generates design and testbench files using templates from the [[https://github.com/24x7fpga/RTL/tree/master/rtl_templates][rtl_templates]] directory.
+
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/sv_scripts][sv_scritps]]
+
+- Purpose: Automates the process of creating SystemVerilog design files and running simulations using Vivado. 
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_cstrs_design.py][sv_cstrs_design.py]]: Generates design files for constraint challenges using templates from the [[https://github.com/24x7fpga/SV/tree/main/sv_templates/constraints][sv_templates]] folder. Ensures consistency and reduces manual effort when handling constraints.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_cstrs_run.py][sv_cstrs_run.py]]: Automates the creation of Vivado projects and simulates the design using TCL scripts in the [[https://github.com/24x7fpga/SV/tree/main/sv_tcl_script][sv_tcl]] folder. Streamlines the setup process for running constraint-based designs.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_design.py][sv_design.py]]: Creates all necessary files for a complete verification environment, including components like drivers, monitors, and transactions. Utilizes predefined templates in the sv_templates folder to maintain standardization.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_run.py][sv_run.py]]: Runs the Vivado simulation for the design. Automates simulation tasks, saving time and ensuring repeatable results.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_clean.py][sv_clean.py]]: Deletes all project files and artifacts generated by Vivado simulations. Keeps the workspace clean and organized.
+
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/uvm_scripts][uvm_scripts]]
+
+- Purpose: Simplifies the workflow for Universal Verification Methodology (UVM)-based frameworks and simulations.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/uvm_scripts/uvm_run.py][uvm_run.py]]: utomates the execution of UVM projects in Vivado. Ensures efficient setup and simulation of UVM environments.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/uvm_scripts/uvm_clean.py][uvm_clean.py]]: Deletes all folders and files generated by Vivado projects during UVM simulation. Helps maintain a clean workspace for new simulations.
+        
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/veri_scripts][veri_scripts]]
+        
+- Purpose: Manages the simulation process using Verilator and provides a seamless Verilator simulation and cleanup workflow.
+             
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/veri_scripts/veri_run.py][veri_run.py]]: Simulates the RTL design using Verilator.
+            
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/veri_scripts/veri_clean.py][veri_clean.py]]: Cleans up all files and directories generated during Verilator simulations.
+
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/veri_scripts/config.vlt][config.vlt]]: The ==config.vlt== file in Verilator customizes simulation settings and overrides default behaviors. 
+        
+** [[https://github.com/24x7fpga/Python_Scripts/tree/master/vivado_scripts][vivado_scripts]]
+        
+- Purpose: Integrates Vivado TCL scripting for project creation and simulation.
+            
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/vivado_scripts/vivado_run.py][vivado_run.py]]: Invokes the rtl_run.tcl script from the rtl_tcl_script folder to create and simulate a Vivado project.
+            
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/vivado_scripts/vivado_clean.py][vivado_clean.py]]: Removes Vivado-generated project files, logs, and other artifacts.
+        
+These scripts collectively enhance productivity by automating repetitive tasks, ensuring consistency, and providing efficient workflow.
+
+* Getting Started
+
+Follow these steps to set up the project and run the design on your system.
+
+** Prerequisites
+
+Ensure you have the following tools installed:
+
+1. Git: Required for cloning the repository.
+
+   - [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][Installation Guide]]
+
+2. Python: Ensure Python 3.x is installed.
+    
+   - [[https://www.python.org/downloads/][Download Python]
+    
+3. Vivado / Verilator / Icarus Verilog: Choose the appropriate tool based on your simulation needs.
+        
+   - [[https://24x7fpga.com/rtl_directory/2024_07_28_10_50_56_vivado_installation/][Vivado Installation Guide]]
+        
+   - [[https://verilator.org/guide/latest/install.html][Verilator]]
+        
+   - [[https://steveicarus.github.io/iverilog/usage/installation.html][Icarus Verilog]]
+    
+4. GTKWave: For waveform viewing, if required.
+    
+   - [[https://gtkwave.sourceforge.net/][Download GTKWave]]
+
+** Clone the Repository
+
+To clone this repository to your local machine, open your terminal and run the following command:
+
+#+begin_src bash
+git clone git@github.com:24x7fpga/Python_Scripts.git ~/Projects/
+#+end_src
+
+** Set Up the Environment
+
+The repository's script directory should be added to your PATH to enable convenient and global execution of the scripts.
+
+#+begin_src bash
+echo '# Add Python to the PATH Environment variable ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/clean_scripts:$PATH" ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/iv_scripts:$PATH" ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/rtl_scripts:$PATH" ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/sv_scripts:$PATH" ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/uvm_scripts:$PATH" ' >> ~/.zshrc
+echo 'export PATH="/$HOME/Projects/Python_Scripts/vivado_scripts:$PATH" ' >> ~/.zshrc
+source ~/.zshrc
+#+end_src
+
+Note: This above example is for zshell.
