@@ -59,15 +59,15 @@ Projects
    - UVM: Holds Universal Verification Methodology (UVM) environments.
    - VanillaFPRO: Dedicated to the Vanilla Floating Point Reduction Operation project.
    - ZyboZ7: Contains designs specific to the Zybo Z7 FPGA board.
- 2. Python_Scripts Sub-subfolders:
-    - README.org: Describes the scripts and their usage.
-    - clean_scripts: Includes Python scripts for removing log and project files.
-    - iv_scripts: Contains scripts for simulation using Icarus Verilog.
-    - rtl_scripts: Focused on automating design task for RTL design.
-    - sv_scripts: Scripts specifically for SystemVerilog environments.
-    - uvm_scripts: Scripts supporting UVM-based verification.
-    - veri_scripts: Includes verification-related scripts.
-    - vivado_scripts: Contains automation scripts for the Vivado tool.
+2. Python_Scripts Sub-subfolders:
+   - README.org: Describes the scripts and their usage.
+   - clean_scripts: Includes Python scripts for removing log and project files.
+   - iv_scripts: Contains scripts for simulation using Icarus Verilog.
+   - rtl_scripts: Focused on automating design task for RTL design.
+   - sv_scripts: Scripts specifically for SystemVerilog environments.
+   - uvm_scripts: Scripts supporting UVM-based verification.
+   - veri_scripts: Includes verification-related scripts.
+   - vivado_scripts: Contains automation scripts for the Vivado tool.
 
 This structure facilitates the organization of FPGA design and Python automation scripts for efficient management and access.
 
