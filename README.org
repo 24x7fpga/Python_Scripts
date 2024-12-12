@@ -53,16 +53,13 @@ Projects
     └── vivado_scripts
 #+end_src
 
-1. FPGA_Projects
-   Sub-subfolders:        
+1. FPGA_Projects Sub-subfolders:        
    - RTL: Contains resources related to Register Transfer Level design.
    - SV: Includes files for SystemVerilog projects.
    - UVM: Holds Universal Verification Methodology (UVM) environments.
    - VanillaFPRO: Dedicated to the Vanilla Floating Point Reduction Operation project.
    - ZyboZ7: Contains designs specific to the Zybo Z7 FPGA board.
-
- 2. Python_Scripts
-    Files and Sub-subfolders:
+ 2. Python_Scripts Sub-subfolders:
     - README.org: Describes the scripts and their usage.
     - clean_scripts: Includes Python scripts for removing log and project files.
     - iv_scripts: Contains scripts for simulation using Icarus Verilog.
