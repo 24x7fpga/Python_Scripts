@@ -181,7 +181,7 @@ Ensure you have the following tools installed:
 
 2. Python: Ensure Python 3.x is installed.
     
-   - [[https://www.python.org/downloads/][Download Python]
+   - [[https://www.python.org/downloads/][Download Python]]
     
 3. Vivado / Verilator / Icarus Verilog: Choose the appropriate tool based on your simulation needs.
         
