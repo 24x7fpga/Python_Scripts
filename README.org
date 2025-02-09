@@ -131,7 +131,7 @@ Python_Scripts
 
 - [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_cstrs_design.py][sv_cstrs_design.py]]: Generates design files for constraint challenges using templates from the [[https://github.com/24x7fpga/SV/tree/main/sv_templates/constraints][sv_templates]] folder. Ensures consistency and reduces manual effort when handling constraints.
 
-- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_cstrs_run.py][sv_cstrs_run.py]]: Automates the creation of Vivado projects and simulates the design using TCL scripts in the [[https://github.com/24x7fpga/SV/tree/main/sv_tcl_script][sv_tcl]] folder. Streamlines the setup process for running constraint-based designs.
+- [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_cstrs_vivado_run.py][sv_cstrs_vivado_run.py]] Automates the creation of Vivado projects and simulates the design using TCL scripts in the [[https://github.com/24x7fpga/SV/tree/main/sv_tcl_script][sv_tcl]] folder. Streamlines the setup process for running constraint-based designs.
 
 - [[https://github.com/24x7fpga/Python_Scripts/blob/master/sv_scripts/sv_design.py][sv_design.py]]: Creates all necessary files for a complete verification environment, including components like drivers, monitors, and transactions. Utilizes predefined templates in the sv_templates folder to maintain standardization.
 
