@@ -1,3 +1,4 @@
 `verilator_config
 lint_off -file "tb_*.v" 
+lint_off -file "interface.sv"
 lint_off -file "tb_*.sv"
