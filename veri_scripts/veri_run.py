@@ -46,5 +46,3 @@ except:
 #    print("gtwave command successful ;)")
 #except:
 #    print("gtwave command failed ;(")
-    
-

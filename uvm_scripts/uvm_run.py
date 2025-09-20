@@ -19,7 +19,3 @@ vivado_command = [
 ]
 
 subprocess.run(vivado_command)
-
-
-
-
