@@ -11,6 +11,8 @@ path = home + "/Projects/FPGA_Projects/RTL"
 try:
     os.system("find "+path+" -type d \\( -name \"obj_dir\" \\) -print")
     os.system("find "+path+" -type d \\( -name \"obj_dir\" \\) -exec rm -r {} +")
+    os.system("find "+path+" -type f \\( -name \"*.vvp\" -o -name \"*.vcd\" \\) -print")
+    os.system("find "+path+" -type f \\( -name \"*.vvp\" -o -name \"*.vcd\" \\) -exec rm -r {} +")
     print("Cleaned! ;)")
 except:
     print("could not execute command")
