@@ -26,13 +26,25 @@ files = " ".join(files)
 # Verilator Config Path
 config = home + "/Projects/Python_Scripts/veri_scripts/config.vlt" 
 
+# Remove Obj dir if exists
+if os.path.isdir("obj_dir"):
+    # Remove directory
+    os.system("rm -rf "+path+"/obj_dir")
+    # print("Obj_dir Overwritten")
+
+# Remove .vcd if exists
+if os.path.exists("tb_"+name+".vcd"):
+    os.system("rm -f tb_"+name+".vcd")
+    # print("VCD Overwritten")
+
 # Run Verilator
 try:
-    os.system("verilator --binary "+files+" --top tb_"+name+" "+config)
-    print("Verilator command successful ;)")
+    print("Verilator Running . . .")
+    os.system("verilator --trace --binary "+files+" --top tb_"+name+" "+config+" | grep -E '%(warning|error)' > /dev/null")
+    print("Verilator successful ;)")
     os.system("ls -l")
 except:
-    print("iverilog command failed ;(")
+    print("Verilator failed ;(")
 
 try:
     os.system("./obj_dir/Vtb_"+name)
@@ -40,9 +52,7 @@ try:
 except:
     print("vvp command failed ;(")
 
-# Open GTKWave
-#try:
-#    os.system("gtkwave tb_"+name+".vcd")
-#    print("gtwave command successful ;)")
-#except:
-#    print("gtwave command failed ;(")
+# Open GTKWave if .vcd exists
+if os.path.exists("tb_"+name+".vcd"):
+    os.system("gtkwave tb_"+name+".vcd")
+    print("gtwave command successful ;)")
